@@ -1,6 +1,7 @@
 import xmltodict
 import requests
 import json
+import utility
 
 def force_list(obj):
 	if not isinstance(obj, list):
@@ -125,6 +126,9 @@ class NginxRtmpStatParser:
 		strs = "\n".join(strs)
 		stat = xmltodict.parse(strs)
 		self.stat.update_dict(stat)
+
+	def get_stat(self):
+		return self.stat
 
 	def print_stat(self):
 		print self.stat
