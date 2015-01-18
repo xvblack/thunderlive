@@ -14,6 +14,7 @@ def update():
             time.sleep(config.update_interval)
 
 t = threading.Thread(target=update)
+t.daemon = True
 t.start()
 
 
